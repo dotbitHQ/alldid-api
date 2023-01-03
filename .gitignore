@@ -1,0 +1,6 @@
+dist/
+node_modules/
+.idea/
+logs/
+config/local.ts
+.db/

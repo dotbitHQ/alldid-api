@@ -1,0 +1,56 @@
+pipeline:
+  # restore node_modules
+  restore-cache:
+    image: drillster/drone-volume-cache
+    restore: true
+    mount:
+      - ./node_modules
+    volumes:
+      - /tmp/cache/drone/blockabc_admin_server:/cache
+
+  # build
+  build:
+    image: node:12.4.0
+    secrets: [ sentry_dsn ]
+    commands:
+      - npm install
+      - npm run build
+
+  # rewrite node_modules to cache
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./node_modules
+    volumes:
+      - /tmp/cache/drone/blockabc_admin_server:/cache
+
+  # deploy to production
+  deploy_production:
+    image: drillster/drone-rsync
+    hosts: [$HOST_IP]
+    user: root
+    secrets: [ rsync_key, host_ip ]
+    source: ./
+    exclude: ".git"
+    target: /data/code/blockabc_admin_server
+    script:
+      - cd /data/code/blockabc_admin_server
+      - npm run reload_production
+    when:
+      branch: [main]
+
+  # deploy to test
+  deploy_test:
+    image: drillster/drone-rsync
+    hosts: [$HOST_IP]
+    user: root
+    secrets: [ rsync_key, host_ip ]
+    source: ./
+    exclude: ".git"
+    target: /data/code/blockabc_admin_server_test1
+    script:
+      - cd /data/code/blockabc_admin_server_test1
+      - npm run reload_test1
+    when:
+      branch: [test]
