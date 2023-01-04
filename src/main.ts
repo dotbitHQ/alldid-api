@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core'
 import { NestExpressApplication } from '@nestjs/platform-express'
-import { HttpStatus, ValidationPipe } from '@nestjs/common'
+import { HttpStatus, ValidationPipe, VersioningType } from '@nestjs/common'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 // import session from 'express-session'
 // import MysqlSession from 'express-mysql-session'
@@ -13,7 +13,10 @@ async function bootstrap () {
   const appOptions = { cors: true }
   const app = await NestFactory.create<NestExpressApplication>(ApplicationModule, appOptions)
 
-  app.setGlobalPrefix('api')
+  app.enableVersioning({
+    type: VersioningType.URI,
+    prefix: 'api/',
+  })
   app.useGlobalFilters(new HttpExceptionFilter())
   // todo: maybe this can use a filter instead.
   app.useGlobalPipes(new ValidationPipe({

@@ -1,17 +1,16 @@
-import { Module, NestModule, MiddlewareConsumer, CacheModule } from '@nestjs/common'
-import { ScheduleModule } from '@nestjs/schedule'
+import { Module, CacheModule } from '@nestjs/common'
 import { AppController } from './app.controller'
-import { DemoModule } from './demo/demo.module'
 @Module({
   imports: [
-    ScheduleModule.forRoot(),
-    DemoModule,
+    CacheModule.register({
+      ttl: 300,
+      max: 100,
+    })
   ],
   controllers: [
     AppController,
   ],
-  providers: [
-  ],
+  providers: [],
   exports: [
   ]
 })
