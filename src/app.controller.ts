@@ -65,11 +65,10 @@ export class AppController {
 
   @Get('/:name/records')
   async findRecordsByName (@Param() param, @Query() query): Promise<Array<Record<string, any>>> {
-    console.log(query.keys, typeof query.keys)
     let keys = null
     try {
       const queryKeys = JSON.parse(query.keys)
-      if (Array.isArray(queryKeys)) {
+      if (Array.isArray(queryKeys) && queryKeys.length > 0) {
         keys = queryKeys
       }
     }
@@ -85,7 +84,7 @@ export class AppController {
     let keys = null
     try {
       const queryKeys = JSON.parse(query.keys)
-      if (Array.isArray(queryKeys) || typeof queryKeys === 'string') {
+      if ((Array.isArray(queryKeys) && queryKeys.length > 0) || typeof queryKeys === 'string') {
         keys = queryKeys
       }
     }
