@@ -25,7 +25,7 @@ export class AllDIDExceptionFilter extends HttpExceptionFilter {
       default: alldidException = new UnknownError(exception.message)
     }
     const status = alldidException.getStatus()
-    const code = alldidException.code || status
+    const code = alldidException?.code || status
     this.response(status, code, alldidException, host)
   }
 }

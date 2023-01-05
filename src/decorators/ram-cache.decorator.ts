@@ -23,14 +23,14 @@ export function RAMCache ({ key, ttl }: CacheConfig = { ttl: 10 }) {
     }
     const method = descriptor.value
     descriptor.value = async function (...args: any[]) {
-      const cachedItem = await memoryCache.get(key)
+      const cachedItem = await memoryCache.get(key ?? '')
       if (cachedItem) {
         return cachedItem // return observable
       }
 
       const result = await method.apply(this, args)
       const calcTtl = typeof ttl === 'function' ? ttl() : ttl
-      await memoryCache.set(key, result, calcTtl)
+      await memoryCache.set(key ?? '', result, calcTtl)
       return result // return observable
     }
   }

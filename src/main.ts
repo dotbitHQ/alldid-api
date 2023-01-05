@@ -9,7 +9,7 @@ import abcConfig from './config'
 import { CodedError } from './error/CodedError'
 import { HttpExceptionFilter } from './filters/http-exception.filter'
 
-async function bootstrap () {
+async function bootstrap (): Promise<void> {
   const appOptions = { cors: true }
   const app = await NestFactory.create<NestExpressApplication>(ApplicationModule, appOptions)
 
@@ -26,7 +26,7 @@ async function bootstrap () {
     exceptionFactory (errors) {
       const constraints = errors[0].constraints
 
-      return new CodedError(constraints[Object.keys(constraints)[0]], HttpStatus.BAD_REQUEST)
+      return new CodedError(constraints ? constraints[Object.keys(constraints)[0]] : '', HttpStatus.BAD_REQUEST)
     }
   }))
 

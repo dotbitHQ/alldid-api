@@ -14,11 +14,11 @@ function resolveCookie (req, cookieNames: string[] = ['lang']): string {
     }
   }
 
-  return undefined
+  return ''
 }
 
 function resolveQuery (req, keys: string[] = ['language', 'lang', 'locale']): string {
-  let lang: string
+  let lang: string = ''
 
   for (const key of keys) {
     if (req.query?.[key]) {
@@ -37,10 +37,10 @@ function resolveHeader (req, keys = ['accept-language']): string {
     if (accepts?.[0]) {
       return accepts[0]
     }
-    return
+    return ''
   }
 
-  let lang: string
+  let lang: string = ''
 
   for (const key of keys) {
     if (req.headers[key] !== undefined) {
@@ -65,6 +65,7 @@ export function getLanguage (req): string {
       return result
     }
   }
+  return ''
 }
 
 export const Language = createParamDecorator((data, req) => {
