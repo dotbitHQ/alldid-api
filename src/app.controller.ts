@@ -65,7 +65,7 @@ export class AppController {
 
   @Get('/:name/records')
   async findRecordsByName (@Param() param, @Query() query): Promise<Array<Record<string, any>>> {
-    let keys = null
+    let keys: string[] | undefined
     try {
       const queryKeys = JSON.parse(query.keys)
       if (Array.isArray(queryKeys) && queryKeys.length > 0) {
@@ -81,7 +81,7 @@ export class AppController {
 
   @Get('/:name/addrs')
   async findAddrsByName (@Param() param, @Query() query): Promise<Array<Record<string, any>>> {
-    let keys = null
+    let keys: string | string[] | undefined
     try {
       const queryKeys = JSON.parse(query.keys)
       if ((Array.isArray(queryKeys) && queryKeys.length > 0) || typeof queryKeys === 'string') {
