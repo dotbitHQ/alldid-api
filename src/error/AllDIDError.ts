@@ -26,6 +26,6 @@ export class RecordNotFoundError extends CodedError {
 
 export class UnsupportedMethodError extends CodedError {
   constructor () {
-    super('Unsupported method', ErrorCode.Unsupported, HttpStatus.FORBIDDEN)
+    super('Unsupported method', ErrorCode.UnsupportedMethod, HttpStatus.FORBIDDEN)
   }
 }

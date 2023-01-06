@@ -37,6 +37,7 @@ export enum ErrorCode {
   UnregisteredName = 4001,
   RecordIsNotFound = 4002,
   Unsupported = 4003,
+  UnsupportedMethod = 4004,
 
   Unknown = 5000,
 }
