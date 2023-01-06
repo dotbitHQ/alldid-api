@@ -18,8 +18,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+    "lint": "eslint \"{src,apps,libs,tests}/**/*.ts\"",
+    "lint:fix": "eslint \"{src,apps,libs,tests}/**/*.ts\" --fix"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,8 @@
     "@nestjs/swagger": "^6.1.3",
     "@nestjs/testing": "^9.1.6",
     "@nestjs/typeorm": "^9.0.1",
-    "cache-manager": "^5.1.1",
+    "alldid": "^0.1.0",
+    "cache-manager": "^5.1.4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "config": "^3.3.8",
@@ -48,6 +49,7 @@
     "ip-address": "^8.1.0",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0",
     "slug": "^8.2.2",
     "swagger-ui-express": "^4.5.0",
     "typeorm": "^0.3.10",

@@ -13,6 +13,8 @@
     "target": "es6",
     "sourceMap": true,
     "allowJs": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
     "outDir": "./dist"
   },
 
@@ -25,6 +27,6 @@
     ".*.js",
   ],
   "exclude": [
-    "**/*.spec.ts"
+    "**/*.spec.ts",
   ]
 }

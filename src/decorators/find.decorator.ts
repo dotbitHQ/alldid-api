@@ -44,18 +44,18 @@ export function buildFindOptionsFromQuery (query: IQueryWithPagination, fields: 
     fields.forEach(field => {
       if (typeof field === 'string') {
         if (typeof query[field] !== 'undefined') {
-          findOptions.where[field] = query[field]
+          findOptions.where && (findOptions.where[field] = query[field])
         }
       }
       else if ('ignorant' in field) {
         if (query[field.key]) {
-          findOptions.where[field.key] = query[field.key]
+          findOptions.where && (findOptions.where[field.key] = query[field.key])
         }
       }
       else if ('like' in field) {
-        const likeValue = query[field.key]
+        const likeValue: number | string | undefined = query[field.key]
         if (likeValue) {
-          findOptions.where[field.key] = Like(`%${likeValue}%`)
+          findOptions.where && (findOptions.where[field.key] = Like(`%${likeValue}%`))
         }
       }
     })

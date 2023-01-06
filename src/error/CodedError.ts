@@ -21,8 +21,22 @@ export class CodedError extends HttpException {
   }
 }
 
+export class InvalidParameterError extends CodedError {
+  constructor () {
+    super('Invalid parameter', ErrorCode.InvalidParameter, HttpStatus.BAD_REQUEST)
+  }
+}
+
 // The code can not smaller than 1000, as hundreds are designed for http code
 export enum ErrorCode {
   // account
   noAuth = 1001,
+
+  InvalidParameter = 4000,
+
+  UnregisteredName = 4001,
+  RecordIsNotFound = 4002,
+  Unsupported = 4003,
+
+  Unknown = 5000,
 }
