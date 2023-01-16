@@ -107,12 +107,12 @@ Check if the name is supported.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 
 ##### Return Value
 
@@ -137,12 +137,12 @@ Check if the name is valid.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 
 ##### Return Value
 
@@ -167,12 +167,12 @@ Check if the name is already registered.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 
 ##### Return Value
 
@@ -197,12 +197,12 @@ Query the address of the domain name owner
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 
 ##### Return Value
 
@@ -238,12 +238,12 @@ uery the address of the manager of the specified domain name.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 
 ##### Return Value
 
@@ -279,12 +279,12 @@ Query the TokenID of the domain name.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 
 ##### Return Value
 
@@ -320,12 +320,12 @@ Query multiple resolution records of a domain name.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 | keys  | FALSE | string \| string[]  | \["address.eth"\] |
 
 ##### Return Value
@@ -369,12 +369,12 @@ Query multiple resolution addresses of a domain name.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 | keys  | FALSE | string \| string[]  | \["eth"\] |
 
 ##### Return Value
@@ -419,12 +419,12 @@ Query the registry address where the domain name is located.
 Headers:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| Content-Type  | TRUE | application/json  | 请求参数类型 |
+| Content-Type  | TRUE | application/json  | message body encoding |
 
 Path parameters:
 | Key | Required | Value | Description |
 | :----: | :----: | :----: | :----: |
-| name  | TRUE | string  | 域名 |
+| name  | TRUE | string  | domain name |
 
 ##### Return Value
 
